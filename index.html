@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catatan Keuangan Pribadi (Modern)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Dashboard Keuangan</h1>
+        
+        <div class="summary-container">
+            <div class="card">
+                <h3>Total Harian (Trading)</h3>
+                <p class="total" id="total-bersih-harian">Rp 0</p>
+            </div>
+            <div class="card">
+                <h3>Total Bulanan (Kerja)</h3>
+                <p class="total" id="total-bersih-bulanan">Rp 0</p>
+            </div>
+            <div class="card">
+                <h3>Total Tahunan (Panen Kopi)</h3>
+                <p class="total" id="total-bersih-tahunan">Rp 0</p>
+            </div>
+            <div id="grand-total-card" class="card">
+                <h2>TOTAL BERSIH KESELURUHAN</h2>
+                <p id="grand-total-amount">Rp 0</p>
+            </div>
+        </div>
+
+        <div class="tab-nav">
+            <button class="tab-button active" onclick="openTab('harian', this)">Income Harian</button>
+            <button class="tab-button" onclick="openTab('bulanan', this)">Income Bulanan</button>
+            <button class="tab-button" onclick="openTab('tahunan', this)">Income Tahunan</button>
+        </div>
+
+        <div id="harian" class="tab-content active">
+            <h2>Catat Income Harian (Trading)</h2>
+            <div class="form-container">
+                <form id="form-harian">
+                    <div class="form-grid">
+                        <div class="form-group"><label for="tanggal">Tanggal</label><input type="date" id="tanggal" required></div>
+                        <div class="form-group"><label for="ket-harian">Keterangan</label><input type="text" id="ket-harian" placeholder="Contoh: Profit Saham A" required></div>
+                        <div class="form-group"><label for="pemasukan-harian">Pemasukan (Rp)</label><input type="number" id="pemasukan-harian" placeholder="500000" value="0"></div>
+                        <div class="form-group"><label for="pengeluaran-harian">Pengeluaran (Rp)</label><input type="number" id="pengeluaran-harian" placeholder="10000" value="0"></div>
+                    </div>
+                    <button type="submit" class="btn">Tambah Catatan Harian</button>
+                </form>
+            </div>
+            <table class="data-table">
+                <thead><tr><th>Tanggal</th><th>Keterangan</th><th>Pemasukan</th><th>Pengeluaran</th><th>Aksi</th></tr></thead>
+                <tbody id="tabel-harian"></tbody>
+            </table>
+        </div>
+
+        <div id="bulanan" class="tab-content">
+            <h2>Catat Income Bulanan (Kerja)</h2>
+            <div class="form-container">
+                <form id="form-bulanan">
+                    <div class="form-grid">
+                        <div class="form-group"><label for="bulan">Bulan & Tahun</label><input type="month" id="bulan" required></div>
+                        <div class="form-group"><label for="ket-bulanan">Keterangan</label><input type="text" id="ket-bulanan" placeholder="Contoh: Gaji Pokok" required></div>
+                        <div class="form-group"><label for="pemasukan-bulanan">Pemasukan (Rp)</label><input type="number" id="pemasukan-bulanan" placeholder="8000000" value="0"></div>
+                        <div class="form-group"><label for="pengeluaran-bulanan">Pengeluaran (Rp)</label><input type="number" id="pengeluaran-bulanan" placeholder="1500000" value="0"></div>
+                    </div>
+                    <button type="submit" class="btn">Tambah Catatan Bulanan</button>
+                </form>
+            </div>
+            <table class="data-table">
+                <thead><tr><th>Bulan</th><th>Keterangan</th><th>Pemasukan</th><th>Pengeluaran</th><th>Aksi</th></tr></thead>
+                <tbody id="tabel-bulanan"></tbody>
+            </table>
+        </div>
+
+        <div id="tahunan" class="tab-content">
+            <h2>Catat Income Tahunan (Panen Kopi)</h2>
+            <div class="form-container">
+                <form id="form-tahunan">
+                    <div class="form-grid">
+                        <div class="form-group"><label for="tahun">Tahun</label><input type="number" id="tahun" placeholder="Contoh: 2025" required></div>
+                        <div class="form-group"><label for="ket-tahunan">Keterangan</label><input type="text" id="ket-tahunan" placeholder="Contoh: Hasil Panen Raya" required></div>
+                        <div class="form-group"><label for="pemasukan-tahunan">Pemasukan (Rp)</label><input type="number" id="pemasukan-tahunan" placeholder="25000000" value="0"></div>
+                        <div class="form-group"><label for="pengeluaran-tahunan">Pengeluaran (Rp)</label><input type="number" id="pengeluaran-tahunan" placeholder="7000000" value="0"></div>
+                    </div>
+                    <button type="submit" class="btn">Tambah Catatan Tahunan</button>
+                </form>
+            </div>
+            <table class="data-table">
+                <thead><tr><th>Tahun</th><th>Keterangan</th><th>Pemasukan</th><th>Pengeluaran</th><th>Aksi</th></tr></thead>
+                <tbody id="tabel-tahunan"></tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
